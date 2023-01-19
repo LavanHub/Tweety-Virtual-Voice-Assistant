@@ -42,7 +42,8 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 0.8
+        r.pause_threshold = 0.5
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
 
         try:
